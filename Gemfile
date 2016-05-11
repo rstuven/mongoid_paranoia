@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-case version = ENV['MONGOID_VERSION'] || '5'
+gem 'mongoid-compatibility', github: 'rstuven/mongoid-compatibility', branch: 'mongoid6'
+
+case version = ENV['MONGOID_VERSION'] || '6'
+when /^6/
+  gem 'mongoid', github: 'mongodb/mongoid'
 when /^5/
   gem 'mongoid', '~> 5.0'
 when /^4/
